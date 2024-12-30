@@ -1,0 +1,7 @@
+<h1>Form: {{ form.name }}</h1>
+<h2>Responses</h2>
+<ul>
+    {% for label, response in responses.items %}
+        <li>{{ label }}: {{ response }}</li>
+    {% endfor %}
+</ul>

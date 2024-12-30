@@ -1,0 +1,10 @@
+{% extends 'forms_app/base.html' %}
+
+{% block content %}
+<h2>Available Forms</h2>
+<ul>
+    {% for form in forms %}
+        <li><a href="{% url 'form_render' form.pk %}">{{ form.name }}</a></li>
+    {% endfor %}
+</ul>
+{% endblock %}

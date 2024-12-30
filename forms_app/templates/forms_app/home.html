@@ -1,0 +1,10 @@
+{% extends 'forms_app/base.html' %}
+
+{% block content %}
+<div class="text-center">
+    <h1>Welcome to the Dynamic Form Builder</h1>
+    <p>Create, customize, and manage forms dynamically.</p>
+    <a class="btn btn-primary" href="{% url 'form_create' %}">Create New Form</a>
+    <a class="btn btn-secondary" href="{% url 'form_list' %}">View Forms</a>
+</div>
+{% endblock %}
