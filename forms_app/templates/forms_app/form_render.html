@@ -1,0 +1,25 @@
+{% extends 'forms_app/base.html' %}
+
+{% block content %}
+<h2>{{ form.name }}</h2>
+<form method="POST">
+    {% csrf_token %}
+    {% for field in fields %}
+        <div class="mb-3">
+            <label>{{ field.label }}</label>
+            {% if field.field_type == 'text' %}
+                <input type="text" name="{{ field.label }}" class="form-control">
+            {% elif field.field_type == 'textarea' %}
+                <textarea name="{{ field.label }}" class="form-control"></textarea>
+            {% elif field.field_type == 'checkbox' %}
+                <input type="checkbox" name="{{ field.label }}">
+            {% elif field.field_type == 'radio' %}
+                {% for option in field.options.split(',') %}
+                    <input type="radio" name="{{ field.label }}" value="{{ option }}"> {{ option }}
+                {% endfor %}
+            {% endif %}
+        </div>
+    {% endfor %}
+    <button class="btn btn-primary" type="submit">Submit</button>
+</form>
+{% endblock %}
